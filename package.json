@@ -13,7 +13,9 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "craco start",
+    "watch:css": "postcss src/styles/index.css -o src/index.css -w",
+    "start": "npm run watch:css & craco start",
+    "prebuild": "sed -i 's/enabled: false/enabled: true/' tailwind.config.js",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"

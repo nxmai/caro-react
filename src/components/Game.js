@@ -141,6 +141,8 @@ function Game() {
   const onAccept = () => {
     if (isPlaying) return;
 
+    if(parseInt(_row) < 5 && parseInt(_col) < 5) return;
+
     setRow(parseInt(_row));
     setCol(parseInt(_col));
 
@@ -285,6 +287,8 @@ function Game() {
               value={_row ? _row : ""}
               name="row"
               disabled
+              min="5"
+              type="number"
               onChange={onHandleChangeRow}
               className="w-full h-[37px] text-sm focus:border-orange focus:border focus:bg-white transition duration-50 rounded-lg bg-[#F1F1F2] outline-none mb-2 mt-2 pl-2"
             ></input>
@@ -293,6 +297,8 @@ function Game() {
               placeholder="Input row"
               value={_row ? _row : ""}
               name="row"
+              min="5"
+              type="number"
               onChange={onHandleChangeRow}
               className="w-full h-[37px] text-sm focus:border-orange focus:border focus:bg-white transition duration-50 rounded-lg bg-[#F1F1F2] outline-none mb-2 mt-2 pl-2"
             ></input>
@@ -303,6 +309,8 @@ function Game() {
               value={_col ? _col : ""}
               name="col"
               disabled
+              min="5"
+              type="number"
               onChange={onHandleChangeCol}
               className="w-full h-[37px] text-sm focus:border-orange focus:border focus:bg-white transition duration-50 rounded-lg bg-[#F1F1F2] outline-none mb-2 pl-2"
             ></input>
@@ -311,6 +319,8 @@ function Game() {
               placeholder="Input column"
               value={_col ? _col : ""}
               name="col"
+              min="5"
+              type="number"
               onChange={onHandleChangeCol}
               className="w-full h-[37px] text-sm focus:border-orange focus:border focus:bg-white transition duration-50 rounded-lg bg-[#F1F1F2] outline-none mb-2 pl-2"
             ></input>
@@ -331,7 +341,7 @@ function Game() {
           </button>
         </div>
         <div className="h-screen">
-          <div className="flex flex-col h-5/6 w-52 ">
+          <div className="flex flex-col h-5/6 w-52"> 
             <p className="text-lg mt-2 mb-2 font-bold">{status}</p>
             <div>{moves}</div>
           </div>
