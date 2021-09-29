@@ -102,9 +102,7 @@ function Game() {
       if (!move) {
         return (
           <li key={move} className="list-none">
-            <button onClick={() => reStart(move)}>
-              {desc}
-            </button>
+            <button onClick={() => reStart(move)}>{desc}</button>
           </li>
         );
       }
@@ -278,60 +276,67 @@ function Game() {
         }}
       />
 
-      <div className="pt-10 flex flex-col">
-        <p>Input row and column if you want to change</p>
-        {isPlaying ? (
-          <input
-            placeholder="Input row"
-            value={_row ? _row : ""}
-            name="row"
-            disabled
-            onChange={onHandleChangeRow}
-            className="w-full h-[37px] text-sm focus:border-orange focus:border focus:bg-white transition duration-50 rounded-lg bg-[#F1F1F2] outline-none mb-2 mt-2 pl-2"
-          ></input>
-        ) : (
-          <input
-            placeholder="Input row"
-            value={_row ? _row : ""}
-            name="row"
-            onChange={onHandleChangeRow}
-            className="w-full h-[37px] text-sm focus:border-orange focus:border focus:bg-white transition duration-50 rounded-lg bg-[#F1F1F2] outline-none mb-2 mt-2 pl-2"
-          ></input>
-        )}
-        {isPlaying ? (
-          <input
-            placeholder="Input column"
-            value={_col ? _col : ""}
-            name="col"
-            disabled
-            onChange={onHandleChangeCol}
-            className="w-full h-[37px] text-sm focus:border-orange focus:border focus:bg-white transition duration-50 rounded-lg bg-[#F1F1F2] outline-none mb-2 pl-2"
-          ></input>
-        ) : (
-          <input
-            placeholder="Input column"
-            value={_col ? _col : ""}
-            name="col"
-            onChange={onHandleChangeCol}
-            className="w-full h-[37px] text-sm focus:border-orange focus:border focus:bg-white transition duration-50 rounded-lg bg-[#F1F1F2] outline-none mb-2 pl-2"
-          ></input>
-        )}
+      <div className="pt-10 flex">
+        <div className="flex flex-col mr-16">
+          <p>Input row and column if you want to change</p>
+          {isPlaying ? (
+            <input
+              placeholder="Input row"
+              value={_row ? _row : ""}
+              name="row"
+              disabled
+              onChange={onHandleChangeRow}
+              className="w-full h-[37px] text-sm focus:border-orange focus:border focus:bg-white transition duration-50 rounded-lg bg-[#F1F1F2] outline-none mb-2 mt-2 pl-2"
+            ></input>
+          ) : (
+            <input
+              placeholder="Input row"
+              value={_row ? _row : ""}
+              name="row"
+              onChange={onHandleChangeRow}
+              className="w-full h-[37px] text-sm focus:border-orange focus:border focus:bg-white transition duration-50 rounded-lg bg-[#F1F1F2] outline-none mb-2 mt-2 pl-2"
+            ></input>
+          )}
+          {isPlaying ? (
+            <input
+              placeholder="Input column"
+              value={_col ? _col : ""}
+              name="col"
+              disabled
+              onChange={onHandleChangeCol}
+              className="w-full h-[37px] text-sm focus:border-orange focus:border focus:bg-white transition duration-50 rounded-lg bg-[#F1F1F2] outline-none mb-2 pl-2"
+            ></input>
+          ) : (
+            <input
+              placeholder="Input column"
+              value={_col ? _col : ""}
+              name="col"
+              onChange={onHandleChangeCol}
+              className="w-full h-[37px] text-sm focus:border-orange focus:border focus:bg-white transition duration-50 rounded-lg bg-[#F1F1F2] outline-none mb-2 pl-2"
+            ></input>
+          )}
 
-        <button
-          onClick={onAccept}
-          className="text-sm pl-8 h-10 pr-8 pt-2 pb-2 mb-2 rounded-full bg-[#F1F1F2] shadow-lg hover:bg-gray-300 transition duration-200"
-        >
-          Confirm
-        </button>
+          <button
+            onClick={onAccept}
+            className="text-sm pl-8 h-10 pr-8 pt-2 pb-2 mb-2 rounded-full bg-[#F1F1F2] shadow-lg hover:bg-gray-300 transition duration-200"
+          >
+            Confirm
+          </button>
 
-        <button
-          onClick={toggle}
-          className="text-sm pl-8 h-10 pr-8 pt-2 pb-2 mb-4 rounded-full bg-[#F1F1F2] shadow-lg hover:bg-gray-300 transition duration-200"
-        >
-          {ascending ? "Ascending" : "Descending"}
-        </button>
-        <p className="text-lg mt-2 mb-2 font-bold">{status}</p>
-        <div>{moves}</div>
+          <button
+            onClick={toggle}
+            className="text-sm pl-8 h-10 pr-8 pt-2 pb-2 mb-4 rounded-full bg-[#F1F1F2] shadow-lg hover:bg-gray-300 transition duration-200"
+          >
+            {ascending ? "Ascending" : "Descending"}
+          </button>
+        </div>
+        <div className="h-screen">
+          <div className="flex flex-col h-5/6 w-52 ">
+            <p className="text-lg mt-2 mb-2 font-bold">{status}</p>
+            <div>{moves}</div>
+          </div>
+        </div>
+        
       </div>
     </div>
   );
